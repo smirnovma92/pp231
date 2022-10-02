@@ -12,4 +12,6 @@ public interface UserDao {
     User findById(Long id);
 
     List<User> getUsers();
+
+    public void editUser(User user);
 }

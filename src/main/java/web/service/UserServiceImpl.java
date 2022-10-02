@@ -8,7 +8,7 @@ import web.model.User;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Autowired
@@ -19,6 +19,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public void saveUser(User user) {
         userDao.saveUser(user);
+    }
+
+    @Override
+    public void editUser(User user) {
+        userDao.editUser(user);
     }
 
     @Override

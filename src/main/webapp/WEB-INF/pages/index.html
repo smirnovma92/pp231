@@ -19,13 +19,14 @@
     <tr th:each="user : ${users}">
         <td th:text="${user.getName()}"></td>
         <td th:text="${user.getLastName}"></td>
-        <td><a th:href="@{/deleteUser/{id}(id=${user.getId()})}">Удалить</a></td>
+        <td><a th:href="@{/editUser/{id}(id=${user.getId()})}">Редактировать</a>
+            <a th:href="@{/deleteUser/{id}(id=${user.getId()})}">Удалить</a></td>
     </tr>
     </tbody>
 </table>
 <hr>
 <h2>Добавить пользователя</h2>
-<form th:method="POST" th:action="@{/}" th:object="${user}">
+<form th:method="POST" th:action="@{/create}" th:object="${user}">
     <div>
         <label for="name">Имя:</label>
         <br>

@@ -21,13 +21,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void saveUser(User user) {
-        if (user.getId() == null) {
-            entityManager.persist(user);
-        } else {
-            entityManager.merge(user);
-        }
+        entityManager.persist(user);
     }
 
+    @Override
+    public void editUser(User user) {
+        entityManager.merge(user);
+    }
     @Override
     public void deleteUser(Long id) {
         User user = entityManager.find(User.class, id);
@@ -44,7 +44,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getUsers() {
-        Query query=entityManager.createQuery(" FROM User", User.class);
+        Query query = entityManager.createQuery(" FROM User", User.class);
         return query.getResultList();
     }
 
